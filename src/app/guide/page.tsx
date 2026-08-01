@@ -103,7 +103,7 @@ export default function GuidePage() {
                       href="#passes"
                       className="flex gap-3 text-[0.875rem] leading-snug text-ash transition-colors duration-300 hover:text-gfp"
                     >
-                      <span className="shrink-0 text-dim">11</span>
+                      <span className="shrink-0 text-dim">12</span>
                       What three passes caught
                     </a>
                   </li>
@@ -133,7 +133,7 @@ export default function GuidePage() {
                 <section id="passes" className="scroll-mt-28">
                   <Reveal>
                     <div className="flex items-baseline gap-4 border-t hairline pt-6">
-                      <span className="text-[0.875rem] text-gfp">11</span>
+                      <span className="text-[0.875rem] text-gfp">12</span>
                       <h2 className="display text-large leading-[1.05] text-bone">
                         What three iteration passes caught
                       </h2>
