@@ -174,7 +174,7 @@ export const programs: Program[] = [
       {
         kind: "list",
         items: [
-          "Libre Caslon Condensed for display. A condensed cut of a Caslon, which is an unusual thing to find open-licensed and a very useful one: the narrow set means the headline can run far larger at the same measure, and the classical skeleton keeps a black page from tipping into science fiction. Its italic carries every accent line on the site.",
+          "Libre Caslon Condensed for display. A condensed cut of a Caslon, which is an unusual thing to find open-licensed and a very useful one: the narrow set means the headline can run far larger at the same measure, and the classical skeleton keeps a black page from tipping into science fiction. Roman only: the accent lines are carried by color, not by a slope.",
           "Söhne for everything else. Body copy, navigation, buttons, captions, readouts and labels. A grotesque with enough warmth to sit under a Caslon without arguing with it.",
         ],
       },
@@ -526,7 +526,7 @@ export const passes: { n: string; title: string; found: string[] }[] = [
     found: [
       "A member of the team died in June 2026. The company's own site has not been updated, and the copy presented him in the present tense as a serving surgeon. He has been removed from the roster.",
       "All three animal-facility accreditations belong to the neighboring non-profit institute, not to 3DT. 3DT returns zero hits across all 12,443 USDA APHIS licensees, the AAALAC directory and OLAW's live assurance dataset; the institute returns all three. The arrangement is entirely lawful and ordinary, but the claim as written was not supportable. The site now attributes them correctly, with identifiers.",
-      "The suite number was wrong, and the coordinates were off by 2.4 kilometers. Both now match SAM.gov and the US Census Geocoder.",
+      "The suite number was wrong, and the coordinates were off by 2.4 kilometers. The suite now matches SAM.gov; the coordinates were dropped rather than corrected, because a street address already places the building and a lat-long on a laboratory page reads as surveillance, not precision.",
       "All four program development statuses were invented. The source states none, and never has, across Wayback snapshots going back to 2016.",
       "The stent underexpansion statistic was wrong twice over. An earlier draft invented a figure, caught it, and replaced it with a sourced ~35% that was itself wrong: it used restenotic lesions as the denominator, and it conflated underexpansion with malapposition, which are two different failures with two different consequences. ILUMIEN IV puts median expansion at 79.1% across 2,128 core-lab-read cases, so the honest figure is closer to half. The correction story in section 01 was this guide's flagship demonstration of rigor, and it was wrong.",
       "'500+ peer-reviewed publications' was a combined count of proceedings, abstracts and full-length papers. PubMed indexes 373 articles.",

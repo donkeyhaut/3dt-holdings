@@ -2,16 +2,20 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { org } from "@/content/site";
 import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Grain } from "@/components/Grain";
 import "./globals.css";
 
-/** Libre Caslon Condensed, variable weight. SIL Open Font License. */
+/**
+ * Libre Caslon Condensed, variable weight. SIL Open Font License.
+ * Roman only. Nothing on the site is set in a sloped cut any more, and a
+ * declared face is a preloaded face whether or not it is ever drawn.
+ * The word for that cut is left out of this comment on purpose: Tailwind
+ * scans source text, and seeing it here is enough to emit a dead utility.
+ */
 const display = localFont({
   src: [
     { path: "../fonts/caslon-cond-var.woff2", weight: "400 700", style: "normal" },
-    { path: "../fonts/caslon-cond-var-italic.woff2", weight: "400 700", style: "italic" },
   ],
   variable: "--font-caslon",
   display: "swap",
@@ -20,10 +24,9 @@ const display = localFont({
 
 /**
  * Söhne, Klim Type Foundry. Licensed; not redistributable without one.
- * Only the two weights the site actually renders are declared. The 600 cut and
- * the italic were being preloaded at high priority on every route, about 79 KB
- * competing with the critical path, and never drawn: every italic on the site
- * sits inside a `.display` element and resolves to Caslon.
+ * Only the two weights the site actually renders are declared. The 600 and the
+ * sloped cut were being preloaded at high priority on every route, about 79 KB
+ * competing with the critical path, and never drawn.
  */
 const sans = localFont({
   src: [
@@ -89,7 +92,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main" tabIndex={-1}>
           {children}
         </main>
-        <Footer />
       </body>
     </html>
   );

@@ -106,9 +106,7 @@ export function Hero() {
       <div className="shell pb-7">
         <div className="rule" />
         <div className="mt-4 flex items-center justify-between gap-6">
-          <p className="label text-dim">
-            {org.city} <span className="hidden sm:inline">· {org.coords}</span>
-          </p>
+          <p className="label text-dim">{org.city}</p>
           <p className="label hidden items-center gap-3 text-dim md:flex">
             Scroll to scan through the specimen
             <span className="relative block h-6 w-px overflow-hidden bg-steel">

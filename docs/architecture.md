@@ -38,7 +38,7 @@ be justified against them, it probably does not belong.
 ```
 src/
   app/                      one directory per route, all static
-    layout.tsx              fonts, metadata, Nav/Footer/Grain/SmoothScroll shell
+    layout.tsx              fonts, metadata, Nav/Grain/SmoothScroll shell
     globals.css             ALL design tokens + base + components + utilities
     page.tsx                home: hero, metrics, conductance, programs,
                             ventures, facility, CTA
@@ -49,7 +49,7 @@ src/
     ConductanceProfile.tsx  the interactive pullback (see below)
     Plate.tsx               lab-plate figure: ticks, scale bar, parallax
     VentureList.tsx         cursor-following hover plate
-    Nav.tsx Footer.tsx PageHead.tsx Section.tsx Reveal.tsx
+    Nav.tsx PageHead.tsx Section.tsx Reveal.tsx
     Grain.tsx SmoothScroll.tsx
   content/
     site.ts                 EVERY fact and line of copy on the site
@@ -145,9 +145,22 @@ report the lumen they sit in and the trace builds the profile.
 - **Accessibility is a build requirement, not a pass.** Lighthouse is
   100/100/100 on desktop and mobile for `/` and `/research`. Keep it there.
   Every arrow glyph is `aria-hidden`; the mobile overlay sets `inert` on
-  `main`/`footer` and pauses Lenis.
+  `main` and pauses Lenis.
 - **House style**: American English, no em dashes anywhere, including CSS
   `content`. Use an en dash for list markers.
+- **No italics.** Accent phrases in headings are set in `gfp` roman, not in a
+  slope. The `<em>` elements that carry them all take `not-italic`, and the
+  Caslon sloped face is deliberately undeclared, so a bare `<em>` or
+  `<address>` will fall back to a synthesized oblique rather than draw the real
+  cut. If you add one, add `not-italic` with it.
+- **No footer.** The site ends at `main`. The standing "not affiliated" notice
+  and the only link to `/guide` therefore live at the foot of `/contact`,
+  which already carries the entity and its address. If that block goes, the
+  disclaimer leaves the site and the colophon is orphaned. It is the one block
+  deliberately not wrapped in `Reveal`: `.reveal` is opacity 0 until the
+  observer fires, and a legal notice must not be conditional on JavaScript.
+- **No coordinates.** The street address places the building. A lat-long on a
+  laboratory page reads as surveillance rather than precision.
 
 ## Regenerating imagery
 
@@ -168,7 +181,8 @@ PNG masters are ~14MB and are not committed.
 - **Söhne** — commercial, Klim Type Foundry. Used here under an existing
   licence. Anyone rebuilding this needs their own, or a substitute.
 
-Only the two Söhne weights the site renders (400, 500) are declared. Declaring
+Only the faces the site renders are declared: Söhne 400 and 500, and Caslon
+roman. Declaring
 unused faces preloads them at high priority on every route for nothing.
 
 ## Deployment

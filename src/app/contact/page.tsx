@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHead } from "@/components/PageHead";
 import { Plate } from "@/components/Plate";
 import { Reveal } from "@/components/Reveal";
 import { Band } from "@/components/Section";
-import { contact, org } from "@/content/site";
+import { contact, org, disclaimer } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -24,7 +25,7 @@ export default function ContactPage() {
           <>
             Bring us a problem
             <br />
-            <em className="italic text-gfp">in a vessel.</em>
+            <em className="not-italic text-gfp">in a vessel.</em>
           </>
         }
         lede={contact.lede}
@@ -74,7 +75,6 @@ export default function ContactPage() {
                     <br />
                     {org.address[1]}
                   </address>
-                  <p className="label mt-4 text-dim">{org.coords}</p>
                 </div>
                 <div>
                   <h2 className="label text-dim">Direct</h2>
@@ -107,6 +107,31 @@ export default function ContactPage() {
                 sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 46vw, 662px"
               />
             </Reveal>
+          </div>
+
+          {/* The site carries no footer, so the standing notice lives here, on
+              the page that already handles the entity and its address. It is
+              also the only route to the colophon.
+
+              Two things about this block are deliberate. It sits outside the
+              two-column grid, so that it closes the page at every width: inside
+              the left column it would fall above the plate once the grid
+              stacks. And it is not a Reveal, because `.reveal` is opacity 0
+              until the observer fires, which would make the standing notice
+              conditional on JavaScript. */}
+          <div className="mt-16 flex flex-col gap-6 border-t hairline pt-7 lg:flex-row lg:items-start lg:justify-between">
+            <p className="label max-w-2xl leading-[1.9] text-dim">{disclaimer}</p>
+            <p className="label shrink-0 text-dim">
+              Designed and built by{" "}
+              {/* Underlined, not just recolored: a link inside a text block
+                  cannot rely on color alone, and ash on dim is only 1.48:1. */}
+              <Link
+                href="/guide"
+                className="text-bone underline decoration-steel underline-offset-4 transition-colors hover:text-gfp hover:decoration-gfp"
+              >
+                Claude Fable 5
+              </Link>
+            </p>
           </div>
         </div>
       </Band>

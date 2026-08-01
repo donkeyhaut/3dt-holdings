@@ -39,7 +39,7 @@ export default function Home() {
               <>
                 Everything here descends
                 <br />
-                from one <em className="italic text-gfp">measurement.</em>
+                from one <em className="not-italic text-gfp">measurement.</em>
               </>
             }
             lede={thesis.lede}
@@ -130,7 +130,7 @@ export default function Home() {
               <>
                 {ventures.length} companies, each
                 <br />
-                proven <em className="italic text-gfp">in this building.</em>
+                proven <em className="not-italic text-gfp">in this building.</em>
               </>
             }
             lede="An incubator that owns an operating room does not have to take a founder's word for whether the device works. Nothing is spun out of 3DT until it has survived a large-animal study downstairs."
@@ -168,7 +168,7 @@ export default function Home() {
                 <>
                   Bench to first-in-human,
                   <br />
-                  <em className="italic text-gfp">without leaving the building.</em>
+                  <em className="not-italic text-gfp">without leaving the building.</em>
                 </>
               }
               lede={facilities.lede}
@@ -230,7 +230,7 @@ export default function Home() {
         <div className="shell py-28 md:py-40">
           <Reveal>
             <h2 className="display max-w-[16ch] text-giant text-bone">
-              Bring us a problem <em className="italic text-gfp">in a vessel.</em>
+              Bring us a problem <em className="not-italic text-gfp">in a vessel.</em>
             </h2>
           </Reveal>
           <Reveal delay={180} className="mt-11 flex flex-wrap items-center gap-3">

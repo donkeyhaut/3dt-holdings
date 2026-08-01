@@ -19,8 +19,6 @@ export const org = {
   phone: "(858) 249-7400",
   phoneHref: "tel:+18582497400",
   email: "info@3dtholdings.com",
-  // US Census Geocoder and OSM Nominatim agree to within 200m of this.
-  coords: "32.905° N, 117.230° W",
   founded: 2007,
 };
 

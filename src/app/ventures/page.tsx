@@ -20,7 +20,7 @@ export default function VenturesPage() {
           <>
             Five companies, each proven
             <br />
-            <em className="italic text-gfp">in this building.</em>
+            <em className="not-italic text-gfp">in this building.</em>
           </>
         }
         lede="An incubator that owns an operating room does not have to take a founder's word for whether a device works. Nothing leaves 3DT as a company until it has survived a large-animal study downstairs."
@@ -60,7 +60,7 @@ export default function VenturesPage() {
                   </Reveal>
 
                   <Reveal delay={140}>
-                    <p className="display mt-8 text-medium italic leading-tight text-gfp">
+                    <p className="display mt-8 text-medium leading-tight text-gfp">
                       {v.lede}
                     </p>
                   </Reveal>

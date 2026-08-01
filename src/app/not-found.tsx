@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="shell flex min-h-[70svh] flex-col justify-center py-32">
       <p className="text-[0.875rem] text-mcherry">404</p>
       <h1 className="display mt-6 max-w-[16ch] text-giant text-bone">
-        No signal at <em className="italic text-gfp">this address.</em>
+        No signal at <em className="not-italic text-gfp">this address.</em>
       </h1>
       <p className="lede mt-8">
         The page you asked for is not here. Everything the site does have is one click away.

@@ -55,10 +55,9 @@ export function Nav() {
      live because it holds the close button. Closing on navigation is handled by
      the links themselves rather than by an effect on pathname. */
   useEffect(() => {
-    const behind = [
-      document.getElementById("main"),
-      document.querySelector("footer"),
-    ].filter(Boolean) as HTMLElement[];
+    const behind = [document.getElementById("main")].filter(
+      Boolean,
+    ) as HTMLElement[];
 
     const release = () => {
       document.body.style.overflow = "";

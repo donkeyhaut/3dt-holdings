@@ -19,7 +19,7 @@ export default function ServicesPage() {
           <>
             Use the laboratory
             <br />
-            <em className="italic text-gfp">without building one.</em>
+            <em className="not-italic text-gfp">without building one.</em>
           </>
         }
         lede={services.lede}
@@ -91,7 +91,7 @@ export default function ServicesPage() {
             <div>
               <Reveal>
                 <h2 className="display max-w-[16ch] text-giant text-bone">
-                  Tell us what you need <em className="italic text-gfp">to prove.</em>
+                  Tell us what you need <em className="not-italic text-gfp">to prove.</em>
                 </h2>
               </Reveal>
             </div>

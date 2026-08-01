@@ -20,7 +20,7 @@ export default function FacilitiesPage() {
           <>
             Bench to first-in-human,
             <br />
-            <em className="italic text-gfp">without leaving the building.</em>
+            <em className="not-italic text-gfp">without leaving the building.</em>
           </>
         }
         lede={facilities.lede}
@@ -89,7 +89,7 @@ export default function FacilitiesPage() {
               <>
                 Multi-scale, because
                 <br />
-                a device fails at <em className="italic text-gfp">one scale.</em>
+                a device fails at <em className="not-italic text-gfp">one scale.</em>
               </>
             }
             lede="Work here runs across disciplines, across physics and across four orders of magnitude of length. A thrombogenic surface is a molecular problem that presents as an organ-level one."

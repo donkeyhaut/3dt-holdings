@@ -72,7 +72,7 @@ export default function GuidePage() {
           <>
             How this site
             <br />
-            <em className="italic text-gfp">was built.</em>
+            <em className="not-italic text-gfp">was built.</em>
           </>
         }
         lede={guideIntro.lede}

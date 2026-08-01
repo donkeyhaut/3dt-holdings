@@ -20,7 +20,7 @@ export default function ResearchPage() {
           <>
             Four problems, each measured
             <br />
-            before it is <em className="italic text-gfp">treated.</em>
+            before it is <em className="not-italic text-gfp">treated.</em>
           </>
         }
         lede="Every program below begins with a quantity a clinician cannot currently see during the procedure, and ends with a device that reports it in real time. The common substrate is conductance."

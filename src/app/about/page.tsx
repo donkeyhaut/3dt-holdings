@@ -20,7 +20,7 @@ export default function AboutPage() {
           <>
             An incubator that owns
             <br />
-            its own <em className="italic text-gfp">operating room.</em>
+            its own <em className="not-italic text-gfp">operating room.</em>
           </>
         }
         meta={[
