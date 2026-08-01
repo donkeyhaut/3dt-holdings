@@ -93,7 +93,7 @@ export default function Home() {
                   <div className="mt-7 flex items-baseline justify-between gap-6">
                     <span className="label text-dim">{p.field}</span>
                     <span className="label text-dim transition-colors duration-300 group-hover:text-gfp">
-                      {p.status}
+                      Program {p.index}
                     </span>
                   </div>
 
@@ -214,6 +214,12 @@ export default function Home() {
               >
                 Tour the laboratory <span aria-hidden>→</span>
               </Link>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <p className="mt-5 max-w-[72ch] text-[0.875rem] leading-relaxed text-dim">
+                {facilities.accreditationNote}
+              </p>
             </Reveal>
           </div>
         </div>

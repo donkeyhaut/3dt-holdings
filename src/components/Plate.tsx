@@ -6,14 +6,14 @@ import clsx from "clsx";
 
 /** Every generated plate, with its true pixel dimensions. */
 export const PLATES = {
-  "hero-endothelium": { w: 1536, h: 1024, alt: "Confocal projection of a vascular endothelial monolayer, actin in green, nuclei in blue", scale: "40 µm" },
-  "coronary-section": { w: 1024, h: 1024, alt: "Immunofluorescence cross-section of a coronary artery showing concentric media and elastic lamina", scale: "200 µm" },
-  "capillary-bed": { w: 1536, h: 1024, alt: "Fluorescent tracer perfusing a branching microvascular capillary bed", scale: "100 µm" },
-  "cardiac-muscle": { w: 1024, h: 1024, alt: "Cardiac muscle at high magnification with sarcomere striations and packed mitochondria", scale: "20 µm" },
-  "gi-villi": { w: 1024, h: 1024, alt: "Cross-section of intestinal mucosa with villi and epithelial nuclei", scale: "150 µm" },
-  organoid: { w: 1024, h: 1024, alt: "A single spherical cardiac organoid in dark-field suspension", scale: "80 µm" },
-  "catheter-macro": { w: 1536, h: 1024, alt: "Macro of a guidewire distal tip: helical coil, atraumatic tip and ring electrodes", scale: "500 µm" },
-  "field-lines": { w: 1536, h: 1024, alt: "Visualization of an electrical conductance field between two electrodes inside a vessel lumen", scale: "1 mm" },
+  "hero-endothelium": { w: 1536, h: 1024, alt: "Confocal projection of a vascular endothelial monolayer, actin in green, nuclei in blue" },
+  "coronary-section": { w: 1024, h: 1024, alt: "Immunofluorescence cross-section of a coronary artery showing concentric media and elastic lamina" },
+  "capillary-bed": { w: 1536, h: 1024, alt: "Fluorescent tracer perfusing a branching microvascular capillary bed" },
+  "cardiac-muscle": { w: 1024, h: 1024, alt: "Cardiac muscle at high magnification with sarcomere striations and packed mitochondria" },
+  "gi-villi": { w: 1024, h: 1024, alt: "Cross-section of intestinal mucosa with villi and epithelial nuclei" },
+  organoid: { w: 1024, h: 1024, alt: "A single spherical cardiac organoid in dark-field suspension" },
+  "catheter-macro": { w: 1536, h: 1024, alt: "Macro of a guidewire distal tip: helical coil, atraumatic tip and ring electrodes" },
+  "field-lines": { w: 1536, h: 1024, alt: "Visualization of an electrical conductance field between two electrodes inside a vessel lumen" },
 } as const;
 
 export type PlateName = keyof typeof PLATES;
@@ -28,7 +28,7 @@ type Props = {
   priority?: boolean;
   /** Slow counter-scroll inside the frame. */
   parallax?: boolean;
-  /** Show corner ticks and a scale bar. */
+  /** Show the registration ticks and plate index. */
   furniture?: boolean;
   /** Pure texture: drop the alt text and hide the figure from the a11y tree. */
   decorative?: boolean;
@@ -130,17 +130,11 @@ export function Plate({
               ))}
             </div>
 
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-4 right-4 flex items-center gap-2"
-            >
-              <span className="block h-px w-9 bg-bone/60" />
-              {/* Not `.label`: uppercasing turns the micron sign into a capital
-                  mu, so "40 µm" reads as "40 MM". */}
-              <span className="text-[0.625rem] font-medium tracking-[0.1em] text-bone/70">
-                {meta.scale}
-              </span>
-            </div>
+            {/* These plates carried a scale bar until it was pointed out that
+                they are generated images with no defined magnification. A
+                measurement printed on a synthetic specimen is decoration
+                dressed as data, which is the one thing a science site cannot
+                afford. The registration ticks stay; the false numbers do not. */}
 
             {index && (
               <span className="label pointer-events-none absolute left-4 top-4 text-[0.5625rem] text-bone/60">

@@ -87,8 +87,8 @@ export function Footer() {
           <p className="label max-w-2xl leading-[1.9] text-dim">{disclaimer}</p>
           <p className="label shrink-0 text-dim">
             Designed and built by{" "}
-            {/* Underlined, not just recoloured: a link inside a text block
-                cannot rely on colour alone, and ash on dim is only 1.48:1. */}
+            {/* Underlined, not just recolored: a link inside a text block
+                cannot rely on color alone, and ash on dim is only 1.48:1. */}
             <Link
               href="/guide"
               className="text-bone underline decoration-steel underline-offset-4 transition-colors hover:text-gfp hover:decoration-gfp"

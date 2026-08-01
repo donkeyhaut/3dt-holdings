@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   3DT — design tokens
+   3DT - design tokens
 
    The palette is not invented. It is the channel set of a fluorescence
    microscope: a black field with DAPI in the blue channel, GFP in the green,
    mCherry in the red. Anything that glows on this site glows because a real
-   fluorophore glows that colour.
+   fluorophore glows that color.
    --------------------------------------------------------------------------- */
 
 @theme {
@@ -16,8 +16,8 @@
   --color-slate: #0d131d;
   --color-graphite: #161d29;
   --color-steel: #2a3444;
-  /* Steel is a hairline colour at 1.57:1 and cannot carry a data series.
-     The reference-calibre trace is load-bearing (stenosis is measured against
+  /* Steel is a hairline color at 1.57:1 and cannot carry a data series.
+     The reference-caliber trace is load-bearing (stenosis is measured against
      it), so it gets a value that clears 3:1 for non-text contrast. */
   --color-reference: #58667d;
 

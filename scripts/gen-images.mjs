@@ -6,10 +6,14 @@
  *
  *   node scripts/gen-images.mjs [name ...]     # omit names to build everything
  */
-import { writeFile, mkdir, readFile } from "node:fs/promises";
+import { writeFile, mkdir, readFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import path from "node:path";
 import os from "node:os";
+
+const run = promisify(execFile);
 
 const OUT = path.resolve(process.cwd(), "public/plates");
 
@@ -118,10 +122,24 @@ async function gen(plate, attempt = 1) {
     throw new Error(`${plate.name}: ${res.status} ${body.slice(0, 300)}`);
   }
   const json = await res.json();
-  const b64 = json.data[0].b64_json;
-  const file = path.join(OUT, `${plate.name}.png`);
-  await writeFile(file, Buffer.from(b64, "base64"));
-  console.log(`ok   ${plate.name}  ${plate.size}  ${(Buffer.from(b64, "base64").length / 1e6).toFixed(1)}MB`);
+  const buf = Buffer.from(json.data[0].b64_json, "base64");
+
+  /* The site loads .jpg. The PNG masters are ~2MB each and are not committed,
+     so the conversion is part of generation rather than a separate step
+     somebody has to remember. */
+  const png = path.join(OUT, `${plate.name}.png`);
+  const jpg = path.join(OUT, `${plate.name}.jpg`);
+  await writeFile(png, buf);
+
+  try {
+    await run("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "88", png, "--out", jpg]);
+    await rm(png);
+    console.log(`ok   ${plate.name}  ${plate.size}  ${(buf.length / 1e6).toFixed(1)}MB -> jpg`);
+  } catch {
+    console.warn(
+      `warn ${plate.name}: sips unavailable, left as PNG. Convert to ${plate.name}.jpg at quality ~88 before shipping.`,
+    );
+  }
 }
 
 const only = process.argv.slice(2);

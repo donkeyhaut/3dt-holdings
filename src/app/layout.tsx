@@ -40,7 +40,7 @@ const SITE = "https://3dt-holdings.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: `${org.name} — ${org.tagline}`,
+    default: `${org.name} · ${org.tagline}`,
     template: `%s · ${org.name}`,
   },
   description:
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   applicationName: org.legal,
   authors: [{ name: "Claude Fable 5" }],
   openGraph: {
-    title: `${org.name} — ${org.tagline}`,
+    title: `${org.name} · ${org.tagline}`,
     description:
       "Cardiovascular and metabolic device R&D, contract research and venture incubation in San Diego.",
     url: SITE,
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${org.name} — ${org.tagline}`,
+    title: `${org.name} · ${org.tagline}`,
     description:
       "Cardiovascular and metabolic device R&D, contract research and venture incubation in San Diego.",
     images: ["/plates/hero-endothelium.jpg"],

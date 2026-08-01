@@ -9,7 +9,7 @@ import { facilities } from "@/content/site";
 export const metadata: Metadata = {
   title: "Facilities",
   description:
-    "Two sterile surgical suites, two flat-panel C-arms, IVUS and echocardiography, an immunopathology core and a 40+ teraflop compute platform. USDA registered, AAALAC accredited.",
+    "Two sterile surgical suites, two flat-panel C-arms, IVUS and echocardiography, an immunopathology core and a multiphysics simulation group, on one corridor in San Diego.",
 };
 
 export default function FacilitiesPage() {
@@ -27,7 +27,7 @@ export default function FacilitiesPage() {
         meta={[
           { label: "Surgical suites", value: "02" },
           { label: "Flat-panel C-arms", value: "02" },
-          { label: "Compute", value: "40+ TFLOP" },
+          { label: "Pathology read", value: "In house" },
         ]}
       />
 
@@ -98,10 +98,9 @@ export default function FacilitiesPage() {
 
           <div className="mt-16 grid gap-px bg-steel/35 sm:grid-cols-2 lg:grid-cols-4">
             {facilities.scales.map((s, i) => (
-              <Reveal key={s.scale} delay={i * 80} className="bg-void p-7 lg:p-9">
+              <Reveal key={s} delay={i * 80} className="bg-void p-7 lg:p-9">
                 <span className="label text-gfp">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="display mt-5 text-medium text-bone">{s.scale}</h3>
-                <p className="mt-2.5 text-[0.9375rem] text-ash">{s.detail}</p>
+                <h3 className="display mt-5 text-medium text-bone">{s}</h3>
               </Reveal>
             ))}
           </div>
@@ -122,8 +121,8 @@ export default function FacilitiesPage() {
                   </li>
                 ))}
               </ul>
-              <p className="label mt-6 leading-[1.9] text-dim">
-                Held through sponsored research agreements and standing collaborations
+              <p className="mt-6 text-[0.875rem] leading-relaxed text-dim">
+                {facilities.partnerNote}
               </p>
             </div>
           </Reveal>
@@ -135,7 +134,7 @@ export default function FacilitiesPage() {
         <div className="shell py-20 md:py-28">
           <SectionHead
             title="Accredited, not merely equipped"
-            lede="Animal work is the part of device development where a shortcut is both easiest and least forgivable. The programme here is registered and externally accredited, and the paperwork travels with the study."
+            lede="Animal work is the part of device development where a shortcut is both easiest and least forgivable. The program here is registered and externally accredited, and the paperwork travels with the study."
             align="split"
           />
 
@@ -148,7 +147,13 @@ export default function FacilitiesPage() {
             ))}
           </div>
 
-          <Reveal delay={220} className="mt-12">
+          <Reveal delay={200} className="mt-8">
+            <p className="max-w-[68ch] border-l-2 border-mcherry/50 py-1 pl-5 text-[0.9375rem] leading-[1.75] text-ash">
+              {facilities.accreditationNote}
+            </p>
+          </Reveal>
+
+          <Reveal delay={260} className="mt-12">
             <Link
               href="/services"
               className="label group flex w-fit items-center gap-3 bg-gfp px-6 py-4 text-void transition-colors duration-300 hover:bg-bone"

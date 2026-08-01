@@ -22,11 +22,22 @@ import {
 const WIDTH = 1000;
 const PAD = 60; // left/right inset of the instrumented run
 
-/** Blood conductivity (S/m) and sensing electrode spacing (m). */
-const SIGMA = 0.5;
+/**
+ * Blood conductivity (S/m) and sensing electrode spacing (m). 0.70 S/m is the
+ * value Kassab's own papers use; a rounder 0.5 is about 29% low. The 1 mm
+ * spacing is from the founding patent.
+ */
+const SIGMA = 0.7;
 const SPACING = 1e-3;
 
-/** Healthy calibre with a gentle natural taper, proximal to distal. */
+/**
+ * A 50% AREA stenosis is only a 29% diameter stenosis, which is not a
+ * clinically meaningful lesion. The alarm belongs at 75% area, the
+ * conventional threshold for a significant one.
+ */
+const ALARM_AREA_STENOSIS = 75;
+
+/** Healthy caliber with a gentle natural taper, proximal to distal. */
 const taper = (t: number) => 3.62 - 0.5 * t;
 
 /** True diameter in mm at normalised position t, with one focal lesion. */
@@ -326,7 +337,7 @@ export function ConductanceProfile() {
         </p>
         <div className="flex flex-wrap items-center gap-x-7 gap-y-2">
           <Legend swatch="bg-gfp" label="Measured lumen" />
-          <Legend swatch="bg-reference" label="Reference calibre" />
+          <Legend swatch="bg-reference" label="Reference caliber" />
           <Legend swatch="bg-mcherry" label="Minimum lumen area" />
         </div>
       </div>
@@ -492,7 +503,7 @@ export function ConductanceProfile() {
             label="Area stenosis"
             value={live.stenosis.toFixed(0)}
             unit="%"
-            alert={live.stenosis > 50}
+            alert={live.stenosis > ALARM_AREA_STENOSIS}
           />
         </div>
       </div>

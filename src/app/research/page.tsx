@@ -85,10 +85,6 @@ export default function ResearchPage() {
                     </p>
                   </Reveal>
 
-                  <Reveal delay={300} className="mt-8 flex items-center gap-3">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gfp" />
-                    <span className="label text-ash">{p.status}</span>
-                  </Reveal>
                 </div>
               </div>
             </div>
