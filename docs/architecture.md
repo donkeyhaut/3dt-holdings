@@ -49,6 +49,7 @@ src/
     ConductanceProfile.tsx  the interactive pullback (see below)
     Plate.tsx               lab-plate figure: ticks, scale bar, parallax
     VentureList.tsx         cursor-following hover plate
+    Logo.tsx                the 3DT lockup, traced (see below)
     Nav.tsx PageHead.tsx Section.tsx Reveal.tsx
     Grain.tsx SmoothScroll.tsx
   content/
@@ -161,6 +162,28 @@ report the lumen they sit in and the trace builds the profile.
   observer fires, and a legal notice must not be conditional on JavaScript.
 - **No coordinates.** The street address places the building. A lat-long on a
   laboratory page reads as surveillance rather than precision.
+
+## The logo
+
+`src/components/Logo.tsx`. The client supplied `3DT R1.svg`, which is not a
+vector file: it is a 1620 x 556 PNG carried inside an SVG envelope by way of a
+base64 `<image>`. It was separated into its two colours, traced with potrace,
+and rewritten as paths on the artwork's own 1620 x 556 grid. Nothing raster is
+left, and the mark is legible at any size.
+
+Two things about it are deliberate:
+
+- **The wordmark takes `currentColor`, not its supplied colour.** As given, the
+  letters are `#000717`, which is the site's own field colour. Rendered
+  faithfully on `void` the wordmark would be invisible. The Nav therefore sets
+  the colour on the link, which is also what carries the green hover.
+- **The mark keeps its gold**, held in `--color-brand`. It is the one value in
+  the palette that is given rather than derived from a fluorophore, so it is
+  named apart from the channels and confined to the mark. Do not reach for it
+  for interface chrome.
+
+`variant="mark"` crops to the asterisk by narrowing the viewBox; the paths are
+shared and unchanged.
 
 ## Regenerating imagery
 

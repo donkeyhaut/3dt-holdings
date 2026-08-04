@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { nav, org } from "@/content/site";
+import { Logo } from "./Logo";
 import { setScrollLocked } from "./SmoothScroll";
 
 export function Nav() {
@@ -108,18 +109,17 @@ export function Nav() {
         />
 
         <div className="shell flex h-[68px] items-center justify-between gap-6 md:h-[76px]">
-          {/* No aria-label. An explicit one broke Label in Name: the two spans
-              have no whitespace between them, so the visible string is
-              "3DTHoldings", which is not a substring of any readable label.
-              The name is built from the visible text plus an sr-only suffix. */}
-          <Link href="/" className="group flex items-baseline gap-2.5">
-            <span className="display text-[1.75rem] leading-none tracking-tight transition-colors duration-300 group-hover:text-gfp">
-              3DT
-            </span>{" "}
-            <span className="label hidden text-dim transition-colors duration-300 group-hover:text-ash xs:block">
-              Holdings
-            </span>
-            <span className="sr-only">, home</span>
+          {/* The lockup carries no text of its own, so there is no Label in
+              Name to satisfy and no visible string to match: the SVG is
+              aria-hidden and the whole accessible name comes from the sr-only
+              span. The wordmark paths take `currentColor`, which is why the
+              hover colour is set on the link and not inside the component. */}
+          <Link
+            href="/"
+            className="group flex items-center text-bone transition-colors duration-300 hover:text-gfp"
+          >
+            <Logo className="h-7 w-auto md:h-8" />
+            <span className="sr-only">3DT Holdings, home</span>
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">

@@ -37,6 +37,11 @@
   --color-mcherry: #ff3e6c;
   --color-mcherry-deep: #c4123f;
 
+  /* Not a channel. The one colour on the site that is given rather than
+     derived: the gold of the supplied 3DT mark, sampled from the artwork.
+     It is confined to the mark and must not spread into the interface. */
+  --color-brand: #8a7a12;
+
   --font-display: var(--font-caslon), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-soehne), ui-sans-serif, system-ui, sans-serif;
 
